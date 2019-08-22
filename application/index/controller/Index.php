@@ -5,6 +5,6 @@ class Index
 {
     public function index()
     {
-	return '404';
+	return '505';
     }
 }
