@@ -1,0 +1,32 @@
+{{extend name="public/base"}}
+{{block name="main"}}
+<h1>用户注册</h1>
+<form action="{{:url('index/user/doRegister')}}" method="post">
+    <table>
+        <tr>
+            <td>用户名</td>
+            <td><input type="text" name="username" value="" required></td>
+        </tr>
+        <tr>
+            <td>密码</td>
+            <td><input type="password" name="password" value="" required></td>
+        </tr>
+        <tr>
+            <td>确认密码</td>
+            <td><input type="password" name="repassword" value="" required></td>
+        </tr>
+        <tr>
+            <td>手机号</td>
+            <td><input type="text" name="phone" value="" required></td>
+        </tr>
+        <tr>
+            <td>邮箱</td>
+            <td><input type="text" name="email" value="" required></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="注册"></td>
+        </tr>
+    </table>
+</form>
+{{/block}}
