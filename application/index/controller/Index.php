@@ -1,7 +1,9 @@
 <?php
 namespace app\index\controller;
 
-class Index
+use think\Controller;
+
+class Index extends Controller
 {
     /**
      * 访问路径:index.php/index/index/index
