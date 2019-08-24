@@ -36,3 +36,11 @@
     </table>
 </form>
 {{/block}}
+{{block name="js"}}
+<script type="text/javascript">
+// jquery版本
+$('#captcha').click(function() {
+    $(this).attr('src', '{{:captcha_src()}}?rand=' + Math.random());
+});
+</script>
+{{/block}}

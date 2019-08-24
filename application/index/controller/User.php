@@ -79,6 +79,12 @@ class User extends Controller
 	public function doRegister(Request $request)
 	{
 		$data = $request->post();
+
+        // 校验验证码
+        if (!captcha_check($data['captcha'])) {
+            $this->error("验证码非法");
+        };
+
         if ($data['password'] != $data['repassword']) {
             $this->error("两次输入的密码不一致");
         }
