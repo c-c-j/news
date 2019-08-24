@@ -45,7 +45,7 @@ class User extends Controller
 
 		if ( $user) {
             Session::set('user', $user);
-			$this->success('登录成功');
+			$this->success('登录成功','index/index/index');
 			exit();
 		}
 
