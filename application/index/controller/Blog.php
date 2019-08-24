@@ -29,7 +29,9 @@ class  Blog extends Controller
 		$hotest = db('blog')
 			->field('id, title, view')
 			->order('view DESC')
+			->limit(5)
 			->select();
+
 		$this->assign([
 			'list' => $list,
 			'newest' => $newest,
