@@ -9,7 +9,7 @@ use think\Controller;
 /**
  * 前台博客控制器
  */
-class  Blog extends AnotherClass
+class  Blog extends Controller
 {
 	public function index()
 	{
