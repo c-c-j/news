@@ -17,6 +17,16 @@ class User extends Controller
 	 */
 	public function index()
 	{
+
+        $user = model('user')->find(session('user.id'));
+        var_dump($user);
+        $this->assign('user', $user);
+        $this->assign('blogs', $user->blogs());
+
+        // 调用模板
+        // 模板路径: index/view/user/center.html
+        return $this->fetch();
+
 		return $this->fetch();
 	}
 
@@ -85,9 +95,8 @@ class User extends Controller
             $this->error("验证码非法");
         };
 
-        if ($data['password'] != $data['repassword']) {
-            $this->error("两次输入的密码不一致");
-        }
+        // 调用验证器,验证数据的合法性
+        $v = validate('user');
 
         $data['password'] = md5($data['password']);
 
