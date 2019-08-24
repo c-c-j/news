@@ -2,7 +2,7 @@
 
 namespace app\index\controller;
 
-use app\index\model\User as UserModel;
+use app\index\model\User;
 use think\Controller;
 use think\Request;
 use think\Session;
@@ -60,7 +60,7 @@ class User extends Controller
 	public function logout()
 	{
         Session::delete('user');
-        
+
 		$this->redirect(url('index/index/index'));
 	}
 
@@ -86,7 +86,7 @@ class User extends Controller
 
         $data['password'] = md5($data['password']);
 
-        $res = model('UserModel')
+        $res = model('User')
         ->allowField(true) // 过滤非数据表字段(repassword)
             ->save($data);
         if ($res) {
