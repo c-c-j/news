@@ -33,7 +33,7 @@
                 </a>
                 <ul class="dropdown-menu">
                     {{if condition="$Think.session.user"}}
-                    <li><a href="#">{{$Think.session.user.username}}</a></li>
+                    <li><a href="{{:url('index/user/index')}}">{{$Think.session.user.username}}</a></li>
                     <li><a href="{{:url('index/user/logout')}}">退出</a></li>
                     {{else /}}
                     <li><a href="{{:url('index/user/login')}}">登陆</a></li>
