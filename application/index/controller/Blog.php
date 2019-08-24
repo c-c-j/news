@@ -51,7 +51,7 @@ class  Blog extends Controller
         # 接收id参数
         $id = input('param.id');
 
-        $data = BlogModel::get($id);
+        $data = BlogModel::get($id); 
 
         // 查看最新的5条记录
         $newest = db('blog')
