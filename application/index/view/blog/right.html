@@ -1,0 +1,29 @@
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <h3 class="panel-title">阅读排行榜</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="list-group">
+            {{volist name="hotest" id="vo"}}
+            <li class="list-group-item">
+                <a href="#">{{$vo.title}}</a>
+                <span class="badge">{{$vo.view}}</span>
+            </li>
+            {{/volist}}
+        </ul>
+    </div>
+</div>
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <h3 class="panel-title">最新排行榜</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="list-group">
+            {{volist name="newest" id="vo"}}
+            <li class="list-group-item">
+                <a href="#">{{$vo.title}}</a>
+            </li>
+            {{/volist}}
+        </ul>
+    </div>
+</div>
