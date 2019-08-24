@@ -86,7 +86,7 @@ class User extends Controller
 
         $data['password'] = md5($data['password']);
 
-        $res = model('user')
+        $res = model('UserModel')
         ->allowField(true) // 过滤非数据表字段(repassword)
             ->save($data);
         if ($res) {
