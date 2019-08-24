@@ -1,0 +1,37 @@
+{{extend name="public/base"}}
+{{block name="main"}}
+<div class="col-md-8">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h3 class="panel-title">{{$data.title}}</h3>
+        </div>
+        <div class="panel-body">
+            {{$data.content}}
+        </div>
+        <div class="panel-footer">
+            作者:{{$data.uid}} 创建时间: {{$data.created}} 浏览量: ({{$data.view}})
+        </div>
+    </div>
+</div>
+{{/block}}
+{{block name="right"}}
+<div class="col-md-4">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h3 class="panel-title">阅读排行榜</h3>
+        </div>
+        <div class="panel-body">
+            <ul class="list-group">
+                {{volist name="hotest" id="vo"}}
+                <li class="list-group-item">
+                    <a href="#">{{$vo.title}}</a>
+                    <span class="badge">{{$vo.view}}</span>
+                </li>
+                {{/volist}}
+            </ul>
+        </div>
+    </div>
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h3 class="panel-title">最新排行榜</h3>
+        </div>
