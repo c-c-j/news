@@ -59,8 +59,8 @@ class User extends Controller
 	 */
 	public function logout()
 	{
-        Session::set('user', $user);
-		
+        Session::delete('user');
+        
 		$this->redirect(url('index/index/index'));
 	}
 
