@@ -44,8 +44,7 @@ class User extends Controller
 		->find();
 
 		if ( $user) {
-			Session::set('user_name',$user);
-			Session::set('user_id',$id);
+            Session::set('user', $user);
 			$this->success('登录成功');
 			exit();
 		}
@@ -60,9 +59,8 @@ class User extends Controller
 	 */
 	public function logout()
 	{
-		Session::delete('user_name');
-		Session::delete('user_id');
-
+        Session::set('user', $user);
+		
 		$this->redirect(url('index/index/index'));
 	}
 
