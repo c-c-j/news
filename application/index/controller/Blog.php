@@ -26,14 +26,14 @@ class  Blog extends Controller
 			->select();
 		
 		//查看最热的五条博客记录
-		$hostest = db('blog')
+		$hotest = db('blog')
 			->field('id, title, view')
 			->order('view DESC')
 			->select();
 		$this->assign([
 			'list' => $list,
 			'newest' => $newest,
-			'hoteest' => $hostest
+			'hotest' => $hotest
 		]);
 
 		return $this->fetch();
