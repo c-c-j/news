@@ -95,7 +95,6 @@ class  Blog extends Controller
     public function doAdd()
     {
         $data = input('param.');
-
         $data['uid'] = session('user.id');
 
         // 处理图片的上传
