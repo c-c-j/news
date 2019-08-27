@@ -1,33 +1,32 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="keywords" content="">
-    <meta name="author" content="PSD1808">
+    <meta name="author" content="jizi">
     <title>Dashboard</title>
     {{load href="__STATIC__/bootstrap/css/bootstrap.css"}}
     {{load href="__CSS__/dashboard.css"}}
-  </head>
+</head>
 
-  <body>
-
+<body>
     {{include file="public/topnav"}}
-    
     <div class="container-fluid">
-      <div class="row">
-        <div class="col-sm-3 col-md-2 sidebar" style="padding: 0px;">
-          {{include file="public/leftnav"}}
+        <div class="row">
+            <div class="col-sm-3 col-md-2 sidebar" style="padding: 0px;">
+                {{include file="public/leftnav"}}
+            </div>
+            <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+                {{block name="main"}}{{/block}}
+            </div>
         </div>
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          {{block name="main"}}{{/block}}
-        </div>
-      </div>
     </div>
-
     {{load href="__JS__/jquery-3.3.1.min.js"}}
     {{load href="__STATIC__/bootstrap/js/bootstrap.js"}}
-  </body>
+</body>
+
 </html>
