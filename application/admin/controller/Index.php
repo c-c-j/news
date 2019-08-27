@@ -10,7 +10,7 @@ use app\common\controller\AdminBase;
 class Index extends AdminBase
 {
     /**
-     * 访问路径: admin/index/index
+     * 管理后台首页
      */
     public function index()
     {

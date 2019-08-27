@@ -21,7 +21,7 @@ class Blog extends Model
     {
         return $this->field("id,uid,title,view,created")
             ->order('created DESC')
-            ->paginate();
+            ->paginate(10);
     }
 
     /**

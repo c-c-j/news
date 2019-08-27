@@ -26,4 +26,14 @@ class User extends Model
             ->find();
         return $user;
     }
+
+    /**
+     * 查询用户列表
+     */
+    public function getList()
+    {
+        return $this->field('id,username,email,phone,admin,created')
+            ->order('created DESC')
+            ->paginate(10);
+    }
 }

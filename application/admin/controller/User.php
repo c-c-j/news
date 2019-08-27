@@ -30,7 +30,6 @@ class User extends Controller
     public function checkAdmin()
     {
         if (!session('?admin')) {
-            // 如果管理员没有登陆,则跳转到登陆页
             $this->error("请先登陆...", url('admin/user/login'));
         }
     }
@@ -48,24 +47,17 @@ class User extends Controller
     public function doLogin()
     {
         $data = input('param.');
-        print_r($data);
 
         // 校验验证码
         if (!captcha_check($data['captcha'])) {
             $this->error('验证码非法');
         }
 
-        // 根据用户名和密码,查询账户信息
         $admin = model('user')->login($data['username'], $data['password']);
-        // print_r($admin->toArray());
-        // exit;
         if ($admin) {
-            // 登陆成功
-            // session赋值
             session('admin', $admin->toArray());
             $this->success("登陆成功", url('admin/index/index'));
         } else {
-            // 登陆失败
             $this->error("登陆失败", url('admin/user/login'));
         }
     }
@@ -78,7 +70,38 @@ class User extends Controller
         # 删除登陆时,赋值的session
         session('admin', null);
 
-        // 退出后跳转到登陆页
         $this->redirect(url('admin/user/login'));
     }
+
+    /**
+     * 用户列表
+     */
+    public function index()
+    {
+        # 查看用户列表数据
+        $list = model('user')->getList();
+
+        $this->assign('list', $list);
+
+        return $this->fetch();
+    }
+
+    /**
+     * 删除用户
+     */
+    public function delete()
+    {
+        $id = input('param.id');
+        if (is_numeric($id) && $id > 0) {
+            $res = UserModel::destroy($id);
+            if ($res) {
+                $this->success("删除成功");
+            } else {
+                $this->error("删除失败");
+            }
+        } else {
+            $this->error("参数非法");
+        }
+    }
+
 }
