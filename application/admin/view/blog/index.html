@@ -1,0 +1,30 @@
+{{extend name="public/base"}}
+
+{{block name="main"}}
+<h3>博客列表</h3>
+<table class="table table-bordered table-hover table-striped table-condensed">
+	<tr>
+		<td>ID</td>
+		<td>标题</td>
+		<td>作者</td>
+		<td>浏览量</td>
+		<td>创建时间</td>
+		<td>操作菜单</td>
+	</tr>
+	{{volist name="list" id="vo"}}
+	<tr>
+		<td>{{$vo.id}}</td>
+		<td>{{$vo.title}}</td>
+		<td>{{$vo.author.username}}</td>
+		<td>{{$vo.view}}</td>
+		<td>{{$vo.created}}</td>
+		<td>
+			<a href="#" class="btn btn-success">查看</a>
+			<a href="#" class="btn btn-primary">编辑</a>
+			<a href="#" class="btn btn-danger">删除</a>
+		</td>
+	</tr>
+	{{/volist}}
+</table>
+{{$list->render()}}
+{{/block}}

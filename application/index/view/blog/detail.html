@@ -9,7 +9,7 @@
             <div id="content">{{$data.content}}</div>
         </div>
         <div class="panel-footer">
-            作者:{{$data.uid}} 创建时间: {{$data.created}} 浏览量: ({{$data.view}})
+            作者:{{$data->author->username}} 创建时间: {{$data.created}} 浏览量: ({{$data.view}})
         </div>
     </div>
 </div>
@@ -21,12 +21,12 @@
 {{/block}}
 {{block name="js"}}
 <script type="text/javascript">
-$(document).ready(function(){
-	//对博客内容进行空字符换行的html页面解析替换
-	var content = $('#content').text();
-	content = content.replace(/\r\n/g, '<br/>').replace(/\n/g, '<br/>').replace(/\s/g, ' ');
-	$('#content').empty();
-	$('#content').append(content);
+$(document).ready(function() {
+    //对博客内容进行空字符换行的html页面解析替换
+    var content = $('#content').text();
+    content = content.replace(/\r\n/g, '<br/>').replace(/\n/g, '<br/>').replace(/\s/g, ' ');
+    $('#content').empty();
+    $('#content').append(content);
 });
 </script>
 {{/block}}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>新闻视界管理后台</title>
+    {{load href="__STATIC__/bootstrap/css/bootstrap.css"}}
+    {{load href="__CSS__/signin.css"}}
+  </head>
+
+  <body>
+
+    <div class="container">
+
+      <form action="{{:url('admin/user/doLogin')}}" method="post" class="form-signin">
+        <h2 class="form-signin-heading">新闻视界管理后台</h2>
+        <label class="sr-only">用户名</label>
+        <input type="text" class="form-control" placeholder="请输入用户名" required autofocus name="username">
+        <label class="sr-only">密码</label>
+        <input type="password" class="form-control" placeholder="请输入密码" required name="password">
+        <label class="sr-only">验证码</label>
+        <input type="text" class="form-control" placeholder="请输入验证码" required name="captcha">
+        <img src="{{:captcha_src()}}" id="captcha" style="width: 100%;">
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="remember-me"> 记住我
+          </label>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">登陆</button>
+      </form>
+
+    </div> <!-- /container -->
+
+    <script type="text/javascript">
+      // 1. 获取对象
+      var c = document.getElementById('captcha');
+      // 2. 触发单击事件  对象.事件类型 = fn(){}
+      c.onclick = function(){
+        // 3. 重新设置src属性  对象.属性名=属性值
+        this.src = "{{:captcha_src()}}?rand="+Math.random();
+      }
+    </script>
+  </body>
+</html>
