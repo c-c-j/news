@@ -41,6 +41,9 @@ class  Blog extends Controller
 		->order('created DESC')
 		->paginate(5);
 
+        // 获取轮播图数据
+        $slide = model('blog')->getSlide();
+        
 		$this->assign([
 			'list' => $list,
 		]);

@@ -1,6 +1,31 @@
 {{extend name="public/base"}}
 {{block name="main"}}
 <div class="col-md-8">
+    <div id="carousel" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            {{volist name="slide" id="vo"}}
+            <li data-target="#carousel" data-slide-to="{{$key}}" {{if condition='$key == 0'}} class="active" {{/if}}></li>
+            {{/volist}}
+        </ol>
+        <div class="carousel-inner" role="listbox">
+            {{volist name="slide" id="vo"}}
+            <div class="item {{if condition='$key == 0'}}active{{/if}}">
+                <a href="{{:url('index/blog/detail', ['id' => $vo.id])}}">
+                    <img src="__STATIC__/upload/{{$vo.image}}" alt="{{$vo.title}}" style="height: 500px; width: 100%;">
+                </a>
+            </div>
+            {{/volist}}
+        </div>
+        <a class="left carousel-control" href="#carousel" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">上一张</span>
+        </a>
+        <a class="right carousel-control" href="#carousel" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">下一张</span>
+        </a>
+    </div>
+    <hr>
     {{volist name="list" id="vo"}}
     <div class="panel panel-info">
         <div class="panel-heading">
@@ -14,7 +39,7 @@
             {{$vo.content|mb_substr=0,150}}
         </div>
         <div class="panel-footer">
-            作者: {{$vo.uid}} 创建时间: {{$vo.created}} 浏览量: ({{$vo.view}})
+            作者: {{$vo->author->username}} 创建时间: {{$vo.created}} 浏览量: ({{$vo.view}})
         </div>
     </div>
     {{/volist}}

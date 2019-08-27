@@ -19,15 +19,13 @@ class User extends Controller
 	{
 
         $user = model('user')->find(session('user.id'));
-        var_dump($user);
+
         $this->assign('user', $user);
         $this->assign('blogs', $user->blogs());
 
         // 调用模板
         // 模板路径: index/view/user/center.html
         return $this->fetch();
-
-		return $this->fetch();
 	}
 
 	/**
@@ -97,8 +95,10 @@ class User extends Controller
 
         // 调用验证器,验证数据的合法性
         $v = validate('user');
-
-        $data['password'] = md5($data['password']);
+        // 执行校验
+        if (!$v->check($data)) {
+            $this->error($v->getError());
+        }
 
         $res = model('user')
         ->allowField(true) // 过滤非数据表字段(repassword)

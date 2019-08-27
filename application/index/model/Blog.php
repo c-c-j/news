@@ -14,6 +14,20 @@ class Blog extends Model
     protected $updateTime         = 'updated';
     protected $createTime         = 'created';
 
+    protected $insert = [
+        'view' => 1,
+        'uid',
+    ];
+
+    /**
+     * 修改器    set字段名Attr()
+     */
+    public function setUidAttr()
+    {
+        return session('user.id');
+    }
+
+
     /**
      * 查看某篇博客的作者信息
      *
@@ -38,6 +52,21 @@ class Blog extends Model
         return $this->where('uid', $uid)
             ->order('created DESC')
             ->paginate(5);
+    }
+
+    /**
+     * 获取轮播图数据
+     *
+     * @param  integer $num 返回记录数
+     * @return 对象
+     */
+    public function getSlide($num = 5)
+    {
+        return $this->field("id,title,image")
+            ->where('image', 'neq', '')
+            ->order('created DESC')
+            ->limit($num)
+            ->select();
     }
     
 }
