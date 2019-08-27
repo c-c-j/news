@@ -10,3 +10,11 @@
 // +----------------------------------------------------------------------
 
 // 应用公共文件
+
+function replareLineFree($str)
+{
+	$str = str_replace(' ', '&nbsp;', $str);
+	$str = str_replace('\t', '<br>', $str);
+
+	return $str;
+}
