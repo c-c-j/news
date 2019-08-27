@@ -46,6 +46,7 @@ class  Blog extends Controller
         
 		$this->assign([
 			'list' => $list,
+            'slide' =>$slide
 		]);
 
 		return $this->fetch();
