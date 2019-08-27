@@ -6,7 +6,7 @@
             <h3 class="panel-title">{{$data.title}}</h3>
         </div>
         <div class="panel-body">
-            {{$data.content|replareLineFree=###}}
+            <div id="content">{{$data.content}}</div>
         </div>
         <div class="panel-footer">
             作者:{{$data.uid}} 创建时间: {{$data.created}} 浏览量: ({{$data.view}})
@@ -18,4 +18,15 @@
 <div class="col-md-4">
     {{include file="blog/right"}}
 </div>
+{{/block}}
+{{block name="js"}}
+<script type="text/javascript">
+$(document).ready(function(){
+	//对博客内容进行空字符换行的html页面解析替换
+	var content = $('#content').text();
+	content = content.replace(/\r\n/g, '<br/>').replace(/\n/g, '<br/>').replace(/\s/g, ' ');
+	$('#content').empty();
+	$('#content').append(content);
+});
+</script>
 {{/block}}
