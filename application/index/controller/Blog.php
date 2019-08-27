@@ -70,8 +70,6 @@ class  Blog extends Controller
 
         // 将查到的结果赋值给模板
         $this->assign('data', $data);
-        $this->assign('newest', $newest);
-        $this->assign('hotest', $hotest);
 
         return $this->fetch();
     }
