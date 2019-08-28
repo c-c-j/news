@@ -1,0 +1,49 @@
+{{extend name="public/base"}}
+{{block name="main"}}
+<h3>编辑博客</h3>
+<form action="{{:url('admin/blog/doEdit')}}" method="post" class="form-horizontal" enctype="multipart/form-data">
+    <div class="form-group">
+        <div class="col-md-2">
+            <label class="control-label">标题:</label>
+        </div>
+        <div class="col-md-5">
+            <input type="text" name="title" value="{{$data.title}}" class="form-control" required>
+        </div>
+        <div class="col-md-5">
+            <span class="help-block">标题不能为空</span>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-2">
+            <label class="control-label">图片:</label>
+        </div>
+        <div class="col-md-5">
+            {{if condition="$data.image"}}
+            <img src="__STATIC__/upload/{{$data.image}}" class="img-thumbnail">
+            {{/if}}
+            <input type="file" name="image" value="" class="form-control">
+        </div>
+        <div class="col-md-5">
+            <span class="help-block"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-2">
+            <label class="control-label">内容:</label>
+        </div>
+        <div class="col-md-5">
+            <textarea name="content" rows="5" class="form-control">{{$data.content}}</textarea>
+        </div>
+        <div class="col-md-5">
+            <span class="help-block"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-10 col-md-offset-2">
+            <input type="hidden" name="id" value="{{$data.id}}">
+            <input type="submit" value="保存" class="btn btn-primary">
+            <input type="reset" value="取消" class="btn btn-default">
+        </div>
+    </div>
+</form>
+{{/block}}

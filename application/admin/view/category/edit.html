@@ -30,8 +30,8 @@
             <label class="control-label">是否推荐:</label>
         </div>
         <div class="col-md-5">
-            <input type="radio" name="recommend" value="0" {{if condition="$data.recommend == 0"}} checked{{/if}}> 不推荐<br>
-            <input type="radio" name="recommend" value="1" {{if condition="$data.recommend == 1"}} checked{{/if}}> 推荐 </div> <div class="col-md-5">
+            <input type="radio" name="recommend" value="0" {{if condition="$data->getData('recommend') == 0"}} checked{{/if}}> 不推荐<br>
+            <input type="radio" name="recommend" value="1" {{if condition="$data->getData('recommend') == 1"}} checked{{/if}}> 推荐 </div> <div class="col-md-5">
             <span class="help-block"></span>
         </div>
     </div>

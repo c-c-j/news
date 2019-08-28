@@ -35,8 +35,7 @@ class Category extends AdminBase
     public function doAdd()
     {
         $data = input('param.');
-        print_r($data);
-
+        
         $res = model('category')->save($data);
         if ($res) {
             $this->success("添加成功");

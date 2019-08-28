@@ -36,4 +36,20 @@ class User extends Model
             ->order('created DESC')
             ->paginate(10);
     }
+
+        /**
+     * 转换"是否是管理员"字段
+     *
+     * @param  integer $value 0普通用户,1管理员
+     *
+     * @return string
+     */
+    public function getAdminAttr($value)
+    {
+        $status = [
+            0 => "普通用户",
+            1 => "管理员",
+        ];
+        return $status[$value];
+    }
 }

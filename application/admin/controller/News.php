@@ -5,57 +5,41 @@ namespace app\admin\controller;
 use app\common\controller\AdminBase;
 
 /**
- * 后台博客控制器
+ * 后台新闻控制器
  */
-class Blog extends AdminBase
+class News extends AdminBase
 {
     /**
-     * 后台博客列表
+     * 新闻列表
      */
     public function index()
     {
-        $list = model('blog')->getList();
+        // 查询数据
+        $list = model('news')->getList();
+
         $this->assign('list', $list);
 
         return $this->fetch();
     }
 
     /**
-     * 添加博客
+     * 添加新闻
      */
     public function add()
     {
-        # code...
+        // 查看分类的树形结构
+        $cs = model('category')->getTree();
+        $this->assign('cs', $cs);
+        return $this->fetch();
     }
 
     /**
-     * 编辑博客
+     * 新闻表单提交
      */
-    public function edit()
+    public function doAdd()
     {
-        $id = input('param.id/d');
-
-        if (is_numeric($id) && $id > 0) {
-
-            $data = model('blog')->find($id);
-            $this->assign('data', $data);
-
-            return $this->fetch();
-            
-        } else {
-            $this->error('参数非法');
-        }
-    }
-
-
-    /**
-     * 编辑表单的提交
-     */
-    public function doEdit()
-    {
-        # 接收表单数据
-        $data = input('param.');
-        $id   = input('param.id');
+        # 接收数据
+        $data = request()->post();
 
         // 图片上传,接收数据
         $file = request()->file('image');
@@ -73,11 +57,11 @@ class Blog extends AdminBase
             }
         }
 
-        $res = model('blog')->where('id', 'eq', $id)->update($data);
+        $res = model('news')->save($data);
         if ($res) {
-            $this->success('更新成功');
+            $this->success('添加成功', url('admin/news/index'));
         } else {
-            $this->error("更新失败");
+            $this->error("添加失败");
         }
     }
 }

@@ -45,4 +45,22 @@ class Category extends Model
 
         return $target;
     }
+
+    /**
+     * 获取器  get字段名Attr
+     *
+     * 如果查询的原始数据满足不了要求
+     * 可以对原始数据进行转换
+     *
+     * @param string $value 原始数据
+     */
+    public function getRecommendAttr($value)
+    {
+        $status = [
+            0 => '<span class="text text-danger">不推荐</span>',
+            1 => '<span class="text text-success">推荐</span>',
+        ];
+
+        return $status[$value];
+    }
 }
