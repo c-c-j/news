@@ -1,56 +1,75 @@
 <div class="panel-group" id="pg">
-  <div class="panel panel-info">
-    <div class="panel-heading">
-      <a href="#blog" data-toggle="collapse" data-parent="#pg">
-        <h3 class="panel-title">博客管理</h3>
-      </a>
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <a href="#blog" data-toggle="collapse" data-parent="#pg">
+                <h3 class="panel-title">博客管理</h3>
+            </a>
+        </div>
+        <div id="blog" class="collapse in panel-collapse">
+            <div class="panel-body" style="padding: 0">
+                <ul class="list-group" style="margin: 0">
+                    <li class="list-group-item">
+                        <a href="{{:url('admin/blog/index')}}">博客列表</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="#">添加博客</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
-    <div id="blog" class="collapse in panel-collapse">
-      <div class="panel-body" style="padding: 0">
-        <ul class="list-group" style="margin: 0">
-          <li class="list-group-item">
-            <a href="{{:url('admin/blog/index')}}">博客列表</a>
-          </li>
-          <li class="list-group-item">
-            <a href="#">添加博客</a>
-          </li>
-        </ul>
-      </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <a href="#comment" data-toggle="collapse" data-parent="#pg">
+                <h3 class="panel-title">评论管理</h3>
+            </a>
+        </div>
+        <div id="comment" class="collapse  panel-collapse">
+            <div class="panel-body" style="padding: 0">
+                <ul class="list-group" style="margin: 0">
+                    <li class="list-group-item">
+                        <a href="#">评论列表</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
-  </div>
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <a href="#comment" data-toggle="collapse" data-parent="#pg">
-        <h3 class="panel-title">评论管理</h3>
-      </a>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <a href="#user" data-toggle="collapse" data-parent="#pg">
+                <h3 class="panel-title">用户管理</h3>
+            </a>
+        </div>
+        <div id="user" class="collapse  panel-collapse">
+            <div class="panel-body" style="padding: 0">
+                <ul class="list-group" style="margin: 0">
+                    <li class="list-group-item">
+                        <a href="#">用户列表</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="#">添加管理员</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
-    <div id="comment" class="collapse  panel-collapse">
-      <div class="panel-body" style="padding: 0">
-        <ul class="list-group" style="margin: 0">
-          <li class="list-group-item">
-            <a href="#">评论列表</a>
-          </li>
-        </ul>
-      </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <a href="#category" data-toggle="collapse" data-parent="#pg">
+                <h3 class="panel-title">分类管理</h3>
+            </a>
+        </div>
+        <div id="category" class="collapse  panel-collapse">
+            <div class="panel-body" style="padding: 0">
+                <ul class="list-group" style="margin: 0">
+                    <li class="list-group-item">
+                        <a href="{{:url('admin/category/index')}}">分类列表</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="{{:url('admin/category/add')}}">添加分类</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
-  </div>
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <a href="#user" data-toggle="collapse" data-parent="#pg">
-        <h3 class="panel-title">用户管理</h3>
-      </a>
-    </div>
-    <div id="user" class="collapse  panel-collapse">
-      <div class="panel-body" style="padding: 0">
-        <ul class="list-group" style="margin: 0">
-          <li class="list-group-item">
-            <a href="#">用户列表</a>
-          </li>
-          <li class="list-group-item">
-            <a href="#">添加管理员</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
 </div>
