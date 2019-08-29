@@ -126,16 +126,5 @@ class  Blog extends IndexBase
             $this->error("添加失败");
         }
     }
-
-    /**
-     * 查询博客下的评论 (多态一对多)
-     *
-     * 当前模型是 Blog
-     */
-    public function comments()
-    {
-        return $this->morphMany('Comment',['comment_type', 'comment_id'],$this->name)
-            ->order('created DESC')
-            ->paginate(4);
-    }
+    
 }
