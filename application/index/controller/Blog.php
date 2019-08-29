@@ -3,13 +3,13 @@
 namespace app\index\controller;
 
 use app\index\model\Blog as BlogModel;
-use think\Controller;
+use app\common\controller\IndexBase;
 
 
 /**
  * 前台博客控制器
  */
-class  Blog extends Controller
+class  Blog extends IndexBase
 {
 
     /**

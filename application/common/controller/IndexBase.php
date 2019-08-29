@@ -18,6 +18,7 @@ class IndexBase extends Controller
     {
         // 查询推荐的分类
         $cs = model('category')->getNav();
+        
         $this->assign('cs', $cs);
     }
 }
