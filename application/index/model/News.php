@@ -141,4 +141,16 @@ class News extends Model
             ->limit($num)
             ->select();
     }
+
+    /**
+     * 查看新闻下的评论 (多态一对多)
+     * 当前模型是: News
+     * @return
+     */
+    public function comments()
+    {
+        return $this->morphMany('comment', ['comment_type', 'comment_id'], $this->name)
+            ->order('created DESC')
+            ->paginate(4);
+    }
 }

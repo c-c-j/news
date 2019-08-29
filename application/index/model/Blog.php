@@ -78,7 +78,7 @@ class Blog extends Model
     {
         return $this->morphMany('Comment',['comment_type', 'comment_id'],$this->name)
             ->order('created DESC')
-            ->paginate(4);
+            ->paginate(5);
     }
     
 }

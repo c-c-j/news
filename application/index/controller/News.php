@@ -36,6 +36,7 @@ class News extends IndexBase
                 'data'   => $data,
                 'newest' => $newest,
                 'hotest' => $hotest,
+                'comments' => $data->comments()
             ]);
             return $this->fetch();
         } else {
