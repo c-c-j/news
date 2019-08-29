@@ -1,11 +1,11 @@
 <div class="panel-group" id="pg">
-    <div class="panel panel-info">
+    <div class='panel {{if condition="$Request.controller == "Blog""}}panel-info{{else /}}panel-default{{/if}}'>
         <div class="panel-heading">
             <a href="#blog" data-toggle="collapse" data-parent="#pg">
                 <h3 class="panel-title">博客管理</h3>
             </a>
         </div>
-        <div id="blog" class="collapse in panel-collapse">
+        <div id="blog" class='collapse {{if condition="$Request.controller == "Blog""}}in{{/if}} panel-collapse'>
             <div class="panel-body" style="padding: 0">
                 <ul class="list-group" style="margin: 0">
                     <li class="list-group-item">
@@ -18,13 +18,13 @@
             </div>
         </div>
     </div>
-    <div class="panel panel-default">
+    <div class='panel {{if condition="$Request.controller == "Comment""}}panel-info{{else /}}panel-default{{/if}}'>
         <div class="panel-heading">
             <a href="#comment" data-toggle="collapse" data-parent="#pg">
                 <h3 class="panel-title">评论管理</h3>
             </a>
         </div>
-        <div id="comment" class="collapse  panel-collapse">
+        <div id="comment" class='collapse {{if condition="$Request.controller == "Comment""}}in{{/if}} panel-collapse'>
             <div class="panel-body" style="padding: 0">
                 <ul class="list-group" style="margin: 0">
                     <li class="list-group-item">
@@ -34,13 +34,13 @@
             </div>
         </div>
     </div>
-    <div class="panel panel-default">
+    <div class='panel {{if condition="$Request.controller == "User""}}panel-info{{else /}}panel-default{{/if}}'>
         <div class="panel-heading">
             <a href="#user" data-toggle="collapse" data-parent="#pg">
                 <h3 class="panel-title">用户管理</h3>
             </a>
         </div>
-        <div id="user" class="collapse  panel-collapse">
+        <div id="user" class='collapse {{if condition="$Request.controller == "User""}}in{{/if}} panel-collapse'>
             <div class="panel-body" style="padding: 0">
                 <ul class="list-group" style="margin: 0">
                     <li class="list-group-item">
@@ -53,13 +53,13 @@
             </div>
         </div>
     </div>
-    <div class="panel panel-default">
+    <div class='panel {{if condition="$Request.controller == "Category""}}panel-info{{else /}}panel-default{{/if}}'>
         <div class="panel-heading">
             <a href="#category" data-toggle="collapse" data-parent="#pg">
                 <h3 class="panel-title">分类管理</h3>
             </a>
         </div>
-        <div id="category" class="collapse  panel-collapse">
+        <div id="category" class='collapse {{if condition="$Request.controller == "Category""}}in{{/if}} panel-collapse'>
             <div class="panel-body" style="padding: 0">
                 <ul class="list-group" style="margin: 0">
                     <li class="list-group-item">
@@ -72,13 +72,13 @@
             </div>
         </div>
     </div>
-    <div class="panel panel-default">
+    <div class='panel {{if condition="$Request.controller == "News""}}panel-info{{else /}}panel-default{{/if}}'>
         <div class="panel-heading">
             <a href="#news" data-toggle="collapse" data-parent="#pg">
                 <h3 class="panel-title">新闻管理</h3>
             </a>
         </div>
-        <div id="news" class="collapse  panel-collapse">
+        <div id="news" class='collapse  {{if condition="$Request.controller == "News""}}in{{/if}}panel-collapse'>
             <div class="panel-body" style="padding: 0">
                 <ul class="list-group" style="margin: 0">
                     <li class="list-group-item">
