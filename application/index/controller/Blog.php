@@ -17,6 +17,9 @@ class  Blog extends IndexBase
      */
     public function _initialize()
     {
+        // 在父类初始化方法中, 查询了推荐的分类
+        parent::_initialize();
+        
         // 查看最新的5条记录
         $newest = db('blog')
             ->field("id, title")

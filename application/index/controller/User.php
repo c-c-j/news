@@ -5,11 +5,12 @@ namespace app\index\controller;
 use think\Controller;
 use think\Request;
 use think\Session;
+use app\common\controller\IndexBase;
 
 /**
  * 前台用户控制器
  */
-class User extends Controller
+class User extends IndexBase
 {
 	/**
 	 * 用户个人中心首页
