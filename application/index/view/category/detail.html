@@ -1,6 +1,7 @@
 {{extend name="public/base"}}
 {{block name="main"}}
 <div class="col-md-8">
+    {{if condition="!empty($slide)"}}
     <div id="carousel" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
             {{volist name="slide" id="vo"}}
@@ -25,6 +26,7 @@
             <span class="sr-only">下一张</span>
         </a>
     </div>
+    {{/if}}
 </div>
 <div class="col-md-4">
     <ul class="list-group">
