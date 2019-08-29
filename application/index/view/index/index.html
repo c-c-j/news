@@ -1,4 +1,58 @@
 {{extend name="public/base"}}
 {{block name="main"}}
-<h1>你好: ThinkPHP</h1>
+<div class="col-md-8">
+    <div id="carousel" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            {{volist name="slide" id="vo"}}
+            <li data-target="#carousel" data-slide-to="{{$key}}" {{if condition='$key == 0'}} class="active" {{/if}}></li>
+            {{/volist}}
+        </ol>
+        <div class="carousel-inner" role="listbox">
+            {{volist name="slide" id="vo"}}
+            <div class="item {{if condition='$key == 0'}}active{{/if}}">
+                <a href="{{:url('index/news/detail', ['id' => $vo.id])}}">
+                    <img src="__STATIC__/upload/{{$vo.image}}" alt="{{$vo.title}}" style="height: 500px; width: 100%;">
+                </a>
+            </div>
+            {{/volist}}
+        </div>
+        <a class="left carousel-control" href="#carousel" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">上一张</span>
+        </a>
+        <a class="right carousel-control" href="#carousel" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">下一张</span>
+        </a>
+    </div>
+</div>
+<div class="col-md-4">
+    <ul class="list-group">
+        {{volist name="recommend" id="vo"}}
+        <li class="list-group-item">
+            <a href="{{:url('index/news/detail', ['id' => $vo.id])}}">{{$vo.title|mb_substr=0,20}}</a>
+        </li>
+        {{/volist}}
+    </ul>
+</div>
+{{volist name="son" id="vo"}}
+<div class="col-md-6">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <a href="{{:url('index/category/detail',['id' => $vo.id])}}">
+                <h3 class="panel-title">{{$vo.title}}</h3>
+            </a>
+        </div>
+        <div class="panel-body" style="padding: 0; height: 420px;">
+            <ul class="list-group">
+                {{volist name="news[$vo.id]" id="vvo"}}
+                <li class="list-group-item">
+                    <a href="{{:url('index/news/detail', ['id' => $vvo.id])}}">{{$vvo.title}}</a>
+                </li>
+                {{/volist}}
+            </ul>
+        </div>
+    </div>
+</div>
+{{/volist}}
 {{/block}}
