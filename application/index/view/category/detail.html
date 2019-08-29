@@ -1,0 +1,16 @@
+{{extend name="public/base"}}
+{{block name="main"}}
+<div class="col-md-8">
+    <h1>轮播图</h1>
+</div>
+<div class="col-md-4">
+    <h1>推荐新闻</h1>
+    <ul class="list-group">
+        {{volist name="recommend" id="vo"}}
+        <li class="list-group-item">
+            <a href="{{:url('index/news/detail', ['id' => $vo.id])}}">{{$vo.title}}</a>
+        </li>
+        {{/volist}}
+    </ul>
+</div>
+{{/block}}

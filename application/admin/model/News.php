@@ -82,8 +82,8 @@ class News extends Model
     public function getOnlineAttr($value)
     {
         $status = [
-            0 => '<span class="glyphicon glyphicon-remove">上线</span>',
-            1 => '<span class="glyphicon glyphicon-ok">下线</span>',
+            0 => '<span class="glyphicon glyphicon-remove"></span>',
+            1 => '<span class="glyphicon glyphicon-ok"></span>',
         ];
 
         return $status[$value];
