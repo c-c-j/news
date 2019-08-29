@@ -13,6 +13,18 @@
             作者:{{$data->author->username}} 创建时间: {{$data.created}} 浏览量: ({{$data.view}})
         </div>
     </div>
+    {{// 展示评论}}
+    {{volist name="comments" id="vo"}}
+    <div class="panel panel-info">
+        <div class="panel-body">
+            {{$vo.content}}
+        </div>
+        <div class="panel-footer">
+            作者: {{$vo->author->username}} 创建时间:{{$vo.created}}
+        </div>
+    </div>
+    {{/volist}}
+    {{$comments->render()}}
 </div>
 {{/block}}
 {{block name="right"}}

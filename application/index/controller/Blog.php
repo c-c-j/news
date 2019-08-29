@@ -73,6 +73,7 @@ class  Blog extends IndexBase
 
         // 将查到的结果赋值给模板
         $this->assign('data', $data);
+        $this->assign('comments', $data->comments());
 
         return $this->fetch();
     }
@@ -124,5 +125,17 @@ class  Blog extends IndexBase
         } else {
             $this->error("添加失败");
         }
+    }
+
+    /**
+     * 查询博客下的评论 (多态一对多)
+     *
+     * 当前模型是 Blog
+     */
+    public function comments()
+    {
+        return $this->morphMany('Comment',['comment_type', 'comment_id'],$this->name)
+            ->order('created DESC')
+            ->paginate(4);
     }
 }
